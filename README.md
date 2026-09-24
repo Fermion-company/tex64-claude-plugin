@@ -20,11 +20,12 @@ This plugin bundles:
 |---|---|---|
 | `doc_types` | Lists the document types (lecture note, exam summary, exercise set, past exam, language note, cram sheet, handout, academic report) | read-only |
 | `scaffold_document` | Returns a compilable `.tex` skeleton for a type | read-only |
-| `check_document` | Checks a source's structure: exercise/answer pairing, numbering, forbidden notation | read-only |
+| `check_document` | Checks a source's structure: exercise/answer pairing, numbering, forbidden notation, unfilled scaffold slots; follows `\input` into staged chapters | read-only |
 | `get_style_files` | Returns the style files for building locally | read-only |
 | `compile_guide` | Describes how to build and check a document locally | read-only |
 | `known_issues` | Looks up known jlreq / luatexja / LuaLaTeX combination problems | read-only |
 | `prepare_compile` | Issues the one-time token for a single server-side compile | read-only |
+| `stage_file` | Places one chapter file of a long document on the server, kept in memory for 60 minutes after the last write | write (holds the file in memory) |
 | `compile_document` | Typesets a `.tex` source on the server and returns a temporary PDF link and page images | write (creates a temporary file) |
 
 ## Example prompts
@@ -48,7 +49,9 @@ TeX64's privacy policy is at <https://mcp.tex64.com/privacy> (full policy:
   any files passed with it. It does not read conversation history or other data.
 - **Use and storage:** the read-only tools do not persist prompts, document
   source or tool results. `compile_document` writes the source to a throwaway
-  directory that is deleted as soon as the build ends.
+  directory that is deleted as soon as the build ends. Chapter files placed with
+  `stage_file` for a long document are held in server memory only and are
+  discarded 60 minutes after the last write.
 - **Retention:** the resulting PDF and page images are kept only long enough to
   download them — under an hour. Anyone holding the returned link can download
   them until they expire, so treat the link as the document itself.

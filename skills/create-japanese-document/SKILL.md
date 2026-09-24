@@ -29,7 +29,10 @@ that TeX is used, and does not need TeX installed.
 4. `scaffold_document` returns a compilable skeleton with a comment in each
    section saying what belongs there. Fill it with the user's material.
 5. `check_document` checks the structure: exercise/answer pairing, numbering,
-   forbidden notation. Fix what it reports before typesetting.
+   forbidden notation, and scaffold slots left unfilled (`<ここに…>`
+   placeholders, `% TODO` with nothing written under it). Fix what it reports
+   before typesetting. While the skeleton is still being filled, `draft=true`
+   sets the unfilled slots aside and only counts them.
 
 ## Typesetting
 
@@ -43,6 +46,12 @@ that TeX is used, and does not need TeX installed.
      full source and the same `preset` / `paper` / `theme` as the scaffold. The
      server generates the styles, typesets, and returns a temporary PDF link
      and page images. Each compile needs a fresh token.
+   - **Long documents** that do not fit in one call need not be shortened:
+     `stage_file` places one chapter file per call (`append=true` continues a
+     file) and returns an `uploadId`; the main source `\input`s the chapters,
+     and the same `uploadId` goes to `check_document` (so the chapters are
+     checked too) and `compile_document`. Staged files survive a retry, so only
+     changed chapters are sent again.
 7. Look at the returned page images — cover, Japanese glyphs, headings, boxes,
    page breaks — and fix the source before handing over something unchecked.
 
