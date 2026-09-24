@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "tex64": {
+      "type": "http",
+      "url": "https://mcp.tex64.com/mcp"
+    }
+  }
+}

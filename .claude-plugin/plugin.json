@@ -1,0 +1,15 @@
+{
+  "name": "tex64",
+  "displayName": "TeX64",
+  "version": "0.7.0",
+  "description": "Turn course material into Japanese study notes, exam summaries, exercise sheets and simple academic reports, typeset as PDF — no TeX install needed.",
+  "author": {
+    "name": "Fermion Inc.",
+    "email": "koseikawaguchi@fermion.company",
+    "url": "https://fermion.company/"
+  },
+  "homepage": "https://tex64.com/docs/mcp",
+  "repository": "https://github.com/Fermion-company/tex64-claude-plugin",
+  "license": "MIT",
+  "keywords": ["latex", "japanese", "pdf", "study-notes", "report", "education"]
+}
