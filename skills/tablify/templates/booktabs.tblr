@@ -1,0 +1,11 @@
+% 三線表（日本の論文・教科書の標準）。縦罫なし
+\begin{tblr}{
+  colspec = {l c c},
+  hline{1,Z} = {0.08em},
+  hline{2} = {0.05em},
+  row{1} = {font=\bfseries},
+}
+  条件 & 前 & 後 \\
+  A & 12 & 15 \\
+  B & 9 & 11 \\
+\end{tblr}

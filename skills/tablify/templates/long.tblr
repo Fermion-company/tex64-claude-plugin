@@ -1,0 +1,18 @@
+% ページをまたぐ表。キャプションと表番号は [...] に書き、table 環境で包まない
+\begin{longtblr}[
+  caption = {観測データ},
+  label = {tab:long},
+]{
+  colspec = {c X[l] S[table-format=3.1]},
+  width = \linewidth,
+  rowhead = 1,
+  hline{1,Z} = {0.08em},
+  hline{2} = {0.05em},
+  row{1} = {font=\bfseries},
+}
+  番号 & 地点 & {{{気温}}} \\
+  1 & 札幌 & 8.9 \\
+  2 & 仙台 & 12.4 \\
+  3 & 東京 & 15.8 \\
+  4 & 那覇 & 23.1 \\
+\end{longtblr}

@@ -1,0 +1,12 @@
+% 数値を小数点で揃える表（siunitx ライブラリ）。数値でないセルは {{{...}}} で包む
+\begin{tblr}{
+  colspec = {l S[table-format=1.2] S[table-format=4.1] S[table-format=-2.3]},
+  hline{1,Z} = {0.08em},
+  hline{2} = {0.05em},
+  row{1} = {font=\bfseries},
+}
+  材料 & {{{密度 / \unit{g.cm^{-3}}}}} & {{{融点 / \unit{\degreeCelsius}}}} & {{{変化率}}} \\
+  アルミニウム & 2.70 & 660.3 & -0.125 \\
+  鉄 & 7.87 & 1538 & 12.5 \\
+  銅 & 8.96 & 1084.6 & {{{—}}} \\
+\end{tblr}

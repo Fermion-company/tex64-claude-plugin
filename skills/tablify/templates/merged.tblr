@@ -1,0 +1,14 @@
+% 結合セルと部分的な横罫。隠れる位置も空のセルとして & を書く
+\begin{tblr}{
+  colspec = {l c c c c},
+  hline{1,Z} = {0.08em},
+  hline{2} = {2-3}{0.05em},
+  hline{2} = {4-5}{0.05em},
+  hline{3} = {0.05em},
+  row{1-2} = {font=\bfseries},
+}
+  \SetCell[r=2]{l} 学年 & \SetCell[c=2]{c} 前期 & & \SetCell[c=2]{c} 後期 & \\
+   & 数学 & 物理 & 数学 & 物理 \\
+  1 年 & 72 & 68 & 75 & 70 \\
+  2 年 & 80 & 75 & 82 & 79 \\
+\end{tblr}

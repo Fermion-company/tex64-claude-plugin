@@ -1,0 +1,12 @@
+% 全部に罫線を引く表（時間割・記入欄・チェック表）
+\begin{tblr}{
+  colspec = {Q[c,m] *{3}{X[c,m]}},
+  width = 0.8\linewidth,
+  hlines, vlines,
+  row{1} = {font=\bfseries, bg=black!6},
+  column{1} = {font=\bfseries},
+}
+   & 月 & 火 & 水 \\
+  1 & 数学 & 物理 & 英語 \\
+  2 & 化学 & 数学 & 国語 \\
+\end{tblr}

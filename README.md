@@ -24,7 +24,7 @@ This plugin bundles:
 | `get_style_files` | Returns the style files for building locally | read-only |
 | `compile_guide` | Describes how to build and check a document locally | read-only |
 | `known_issues` | Looks up known jlreq / luatexja / LuaLaTeX combination problems | read-only |
-| `prepare_compile` | Issues the one-time token for a single server-side compile | read-only |
+| `prepare_compile` | Issues the one-time token for a single server-side compile | write (allocates one-time token) |
 | `stage_file` | Places one chapter file of a long document on the server, kept in memory for 60 minutes after the last write | write (holds the file in memory) |
 | `compile_document` | Typesets a `.tex` source on the server and returns a temporary PDF link and page images | write (creates a temporary file) |
 
@@ -69,3 +69,7 @@ Terms of service: <https://mcp.tex64.com/terms>
 ## License
 
 MIT
+
+## Source-based visualizations (next release)
+
+The package now includes `tikzify` and `tablify`, with their local scripts, templates, references and licenses. The document skill routes source material through `visualization_guide` and `create_visualization` for tables, node/edge diagrams and numeric plots, preserves source locators and intentional transformations, then uses the existing PDF compilation flow. Source reading/OCR remains the client's responsibility; no additional AI service is called. These two MCP tools require the matching server release and have not yet been deployed or submitted for review.
