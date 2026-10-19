@@ -70,6 +70,6 @@ Terms of service: <https://mcp.tex64.com/terms>
 
 MIT
 
-## Source-based visualizations (next release)
+## Source-based visualizations
 
-The package now includes `tikzify` and `tablify`, with their local scripts, templates, references and licenses. The document skill routes source material through `visualization_guide` and `create_visualization` for tables, node/edge diagrams and numeric plots, preserves source locators and intentional transformations, then uses the existing PDF compilation flow. Source reading/OCR remains the client's responsibility; no additional AI service is called. These two MCP tools require the matching server release and have not yet been deployed or submitted for review.
+The package now includes `tikzify` and `tablify`, with their local scripts, templates, references and licenses. The document skill routes source material through `visualization_guide` and `create_visualization` for tables, node/edge diagrams and numeric plots, preserves source locators and intentional transformations, then uses the existing PDF compilation flow. Source reading/OCR remains the client's responsibility; no additional AI service is called. The matching server 0.8.1 is deployed at the existing endpoint. OpenAI MCP scanning passed with all 11 tools published; package 1.4.0 has passed metadata and all three skill checks and awaits final submission consent. This does not mean directory package approval.
