@@ -14,6 +14,60 @@ This plugin bundles:
 - **The `create-japanese-document` skill**, which walks Claude through choosing
   a document type, filling the skeleton, checking it and typesetting it.
 
+## Connect from Claude Code
+
+For the MCP tools, run this in your project directory:
+
+```sh
+claude mcp add --transport http tex64 https://mcp.tex64.com
+claude mcp list
+```
+
+Start Claude Code in that directory and open `/mcp` to check that `tex64` is
+connected. No TeX64 account or API key is needed. This connects the server's
+tools; it does not install the skills in this repository. See the official
+[Claude Code MCP guide](https://code.claude.com/docs/en/mcp).
+
+To load the bundled skills and MCP configuration together for a Claude Code
+session, use this route instead:
+
+```sh
+git clone https://github.com/Fermion-company/tex64-claude-plugin.git
+claude --plugin-dir ./tex64-claude-plugin
+```
+
+The directory contains the plugin manifest, `.mcp.json`, and the skills. In that
+session, check `/plugin` and `/mcp`. This repository is a plugin directory, not a
+marketplace; see the official [plugin guide](https://code.claude.com/docs/en/plugins).
+
+## Connect from Claude on the web or desktop
+
+In Claude's connector settings, add a custom remote connector with this URL:
+
+```text
+https://mcp.tex64.com
+```
+
+Use Streamable HTTP if your client asks for a transport. Custom connectors must
+be available on your Claude plan and allowed by your organization. The connector
+adds MCP tools; it does not load this repository's local skills. The
+[public server guide](https://mcp.tex64.com) and
+[TeX64 MCP product page](https://tex64.com/mcp) describe the service.
+
+## Make and save a first document
+
+Try: “Use TeX64 to turn these notes into a one-page Japanese lecture-note PDF.”
+Check the page previews, then download the PDF immediately: its temporary link
+expires within one hour.
+
+To keep editing, ask Claude to save the LaTeX source it used, all referenced
+chapter files and images, and the matching style files returned by
+`get_style_files`. Keep them in one project folder. Open that folder in
+[TeX64](https://tex64.com/download); follow the
+[project guide](https://tex64.com/docs/getting-started) to edit and build locally.
+The PDF link does not provide a downloadable source project, so keep the source
+from the conversation or workspace as well.
+
 ## Tools
 
 | Tool | What it does | Annotation |
@@ -22,6 +76,8 @@ This plugin bundles:
 | `scaffold_document` | Returns a compilable `.tex` skeleton for a type | read-only |
 | `check_document` | Checks a source's structure: exercise/answer pairing, numbering, forbidden notation, unfilled scaffold slots; follows `\input` into staged chapters | read-only |
 | `get_style_files` | Returns the style files for building locally | read-only |
+| `visualization_guide` | Explains how to turn source material into tables, diagrams, and plots | read-only |
+| `create_visualization` | Creates a source-based table, diagram, or numeric plot | write (creates files) |
 | `compile_guide` | Describes how to build and check a document locally | read-only |
 | `known_issues` | Looks up known jlreq / luatexja / LuaLaTeX combination problems | read-only |
 | `prepare_compile` | Issues the one-time token for a single server-side compile | write (allocates one-time token) |
