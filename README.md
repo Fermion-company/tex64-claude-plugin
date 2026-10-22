@@ -77,7 +77,7 @@ from the conversation or workspace as well.
 | `check_document` | Checks a source's structure: exercise/answer pairing, numbering, forbidden notation, unfilled scaffold slots; follows `\input` into staged chapters | read-only |
 | `get_style_files` | Returns the style files for building locally | read-only |
 | `visualization_guide` | Explains how to turn source material into tables, diagrams, and plots | read-only |
-| `create_visualization` | Creates a source-based table, diagram, or numeric plot | write (creates files) |
+| `create_visualization` | Returns editable source for a table, diagram, or numeric plot | read-only |
 | `compile_guide` | Describes how to build and check a document locally | read-only |
 | `known_issues` | Looks up known jlreq / luatexja / LuaLaTeX combination problems | read-only |
 | `prepare_compile` | Issues the one-time token for a single server-side compile | write (allocates one-time token) |
